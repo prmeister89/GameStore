@@ -10,6 +10,12 @@
     <h3>Total Account Balance:</h3>
     <br>
     $<%= @user.balance %>
+    <br>
+    <h2><%= @user.name %>'s Games</h2>
+    <br>
+    <% @user.games.each do |g| %>
+    <li><%= link_to g.name, game_path(g) %></li>
+    <% end %>
 
   </body>
 </html>

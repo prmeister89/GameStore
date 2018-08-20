@@ -7,9 +7,9 @@
   <body>
     <h1>All User's List</h1>
 
-    <%= @users.each do |u| %>
-      <li>Name: <%= link_to u.name, user_path(@user) %></li>
-    <%= end %>
+    <% @users.each do |u| %>
+      <li>Name: <%= link_to u.name, user_path(u) %></li>
+    <% end %>
 
   </body>
 </html>

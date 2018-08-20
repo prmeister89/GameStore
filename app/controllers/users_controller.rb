@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    get_usr
+    get_user
   end
 
   def new
@@ -13,16 +13,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(usr_params)
+    @user = User.create(user_params)
     redirect_to user_path(@user)
   end
 
   def edit
-    get_usr
+    get_user
   end
 
   def update
-    @user = get_usr.update(usr_params)
+    @user = get_user.update(user_params)
     redirect_to user_path(@user)
   end
 
@@ -32,11 +32,11 @@ class UsersController < ApplicationController
 
   private
 
-    def get_usr
+    def get_user
       @user = User.find(params[:id])
     end
 
-    def usr_params
+    def user_params
       params.require(:user).permit(:name, :balance)
     end
 
