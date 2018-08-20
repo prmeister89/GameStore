@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Game Index</title>
+  </head>
+  <body>
+    <h1>All Games's List</h1>
+
+    <%= @games.each do |g| %>
+      <li>Name: <%= link_to g.name, game_path(@game) %></li>
+    <%= end %>
+
+  </body>
+</html>
