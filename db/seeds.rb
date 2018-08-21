@@ -58,22 +58,22 @@ User.create(name: "Johnny Jellybeans", balance: 300.00)
 #Games created from XML
 doc = Nokogiri::XML(File.open("games.xml"))
 z = Nokogiri::XML(File.open("games.xml")).at_xpath("response/results").children
-games = z.map do |parce|
+games = z.map do |xml_element|
   rand_price = rand(0...25.01).round(2)
   #game name
-  name = parce.children.to_a[14].text
+  name = xml_element.children.to_a[14].text
   #game description
-  if Nokogiri::HTML(parce.children.to_a[5].text).css('p').count == 0
+  if Nokogiri::HTML(xml_element.children.to_a[5].text).css('p').count == 0
     description = "Sorry, no description is available."
   else
-    description = Nokogiri::HTML(parce.children.to_a[5].text).css('p')[0].text
+    description = Nokogiri::HTML(xml_element.children.to_a[5].text).css('p')[0].text
   end
   #game original_release_date
-  release_date = parce.children.to_a[17].text[0..9]
+  release_date = xml_element.children.to_a[17].text[0..9]
   #game original_game_rating
-  game_rating = parce.children.to_a[16].text.split.last
+  game_rating = xml_element.children.to_a[16].text.split.last
   #array of game platforms
-  platforms = parce.children.to_a[18].children.children.children.select do |x|
+  platforms = xml_element.children.to_a[18].children.children.children.select do |x|
     x.text.length>3 && !(x.text.start_with?("http"))
     end.map do |y|
       y.text
