@@ -16,9 +16,20 @@
     <br>
     <% @user.games.each do |g| %>
       <li><%= link_to g.name, game_path(g) %></li>
-      <ul>Retail Price: $<%= g.price  %></ul>
-      <ul><%= @user.name %>'s Asking Price: $<%= @user.user_games.find(g.id).list_price %></ul>
+
+      <%= form_for g.user_games.find_by user_id: @user.id do |f| %>
+        <%= f.label :status %>:
+        <%= f.select :status, ['For sale', 'Inactive'], prompt: "status"%>
+        <%= f.submit "Update sales status"%>
+      <% end %>
+
+      <ul>Retail Price: <%= number_to_currency(g.price)  %></ul>
+      <ul><%= @user.name %>'s Asking Price: 
+        <%= number_to_currency((g.user_games.find_by user_id: @user.id).list_price) %>
+      </ul><br>
     <% end %>
+
+<%=  link_to "Add new game", new_user_game_path%>
 
   </body>
 </html>

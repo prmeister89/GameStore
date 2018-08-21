@@ -1,0 +1,10 @@
+<h1>All games currently for sale:</h1>
+
+<% @user_games.each do |ug| %>
+  <% if ug.status == "For sale" %>
+    <%= ug.game.name %> -
+    <%= number_to_currency(ug.list_price) %> -
+    condition: <%= ug.condition %><br>
+    
+  <% end %>
+<% end %>

@@ -72,6 +72,7 @@ games = z.map do |xml_element|
   release_date = xml_element.children.to_a[17].text[0..9]
   #game original_game_rating
   game_rating = xml_element.children.to_a[16].text.split.last
+  # Moving in the right directon, but still needs some help --> xml_element.children.to_a[16].children[1].children[2].children.text
   #array of game platforms
   platforms = xml_element.children.to_a[18].children.children.children.select do |x|
     x.text.length>3 && !(x.text.start_with?("http"))

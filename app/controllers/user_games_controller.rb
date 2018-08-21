@@ -1,14 +1,21 @@
 class UserGamesController < ApplicationController
 
+  def index
+    @user_games = UserGame.all
+  end
 
   def new
     @user_game = UserGame.new
-    @user = User.find(params[:id])
   end
 
   def create
-    @user_game = UserGame.create(ok_params)
-    # redirect_to user_path(@user_game.user)
+    @user_game = UserGame.new(ok_params)
+    @user = User.find(session[:user_id])
+    @user_game.user_id = @user.id
+    @user_game.save
+    # binding.pry
+    # @user_game(user_id: )
+    redirect_to user_path(@user.id)
   end
 
   def edit
@@ -16,9 +23,12 @@ class UserGamesController < ApplicationController
   end
 
   def update
+    @user_game = UserGame.find(params[:id])
+    # binding.pry
     @user_game.update(ok_params)
-    # redirect_to user_path(@user_game.user)
+    redirect_to user_path(@user_game.user)
   end
+
 
   private
 

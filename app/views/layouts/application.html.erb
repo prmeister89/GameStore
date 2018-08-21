@@ -12,7 +12,7 @@
   <body>
     <div class="header">
       <% if current_username %>
-      <h4>Welcome Back <%= current_username %>!</h4>
+      <h4>Logged-in as: <%= current_username %>!</h4>
       <h5><%= link_to "Logout", logout_path, method: "DELETE" %></h5>
       <% else %>
       <h5><%= link_to "Login", login_path %></h5>

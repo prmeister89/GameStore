@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/create'
   resources :user_games
   resources :games
+  resources :users
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
