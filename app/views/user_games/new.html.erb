@@ -1,0 +1,16 @@
+<h1>Add a new game to your inventory.</h1>
+
+<%= form_for @user_game do |f| %>
+
+  <%= collection_select(:user_game, :game_id, Game.all, :id, :name, prompt: true) %><br>
+
+  <%= f.label :condition %>:
+  <%= f.select :condition, ['Good', 'Very Good', 'Fair', 'Poor', 'Perfect']%><br>
+
+
+  User's <%= f.label :list_price  %>:
+  <%= f.number_field :list_price, :step => 0.01 %><br>
+
+  <%= f.submit %>
+
+<% end %>

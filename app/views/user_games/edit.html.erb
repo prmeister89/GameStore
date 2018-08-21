@@ -1,0 +1,16 @@
+<h1>Change you're game's pricing infomation below.</h1>
+
+<%= form_for @user_game do |f| %>
+
+  Name: <%= @user_game.game.name %><br>
+  Condition: <%= @user_game.condition %><br>
+
+  User's <%= f.label :list_price  %>:
+  <%= f.number_field :list_price, :step => 0.01 %><br>
+
+  <%= f.label :status %>:
+  <%= f.select :status, ['Inactive', 'For Sale']%><br>
+
+  <%= f.submit %>
+
+<% end %>
