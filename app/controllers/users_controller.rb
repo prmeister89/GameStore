@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.create(username: params[:user][:username], name: params[:user][:name], balance: 0)
     redirect_to user_path(@user)
   end
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :balance)
+      params.require(:user).permit(:username, :name, :balance)
     end
 
 end
