@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_username
 
+
   def current_username
     if @current_user
       @current_user.username

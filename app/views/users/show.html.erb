@@ -24,12 +24,13 @@
       <% end %>
 
       <ul>Retail Price: <%= number_to_currency(g.price)  %></ul>
-      <ul><%= @user.name %>'s Asking Price: 
+      <ul><%= @user.name %>'s Asking Price:
         <%= number_to_currency((g.user_games.find_by user_id: @user.id).list_price) %>
       </ul><br>
     <% end %>
 
-<%=  link_to "Add new game", new_user_game_path%>
+  <%=  link_to "Add new game", new_user_game_path%>
+  <%=  link_to "All Games for Sale", user_games_path%>
 
   </body>
 </html>

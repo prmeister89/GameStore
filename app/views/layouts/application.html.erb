@@ -12,8 +12,9 @@
   <body>
     <div class="header">
       <% if current_username %>
-      <h4>Logged-in as: <%= current_username %>!</h4>
-      <h5><%= link_to "Logout", logout_path, method: "DELETE" %></h5>
+      <h4>Logged-in as: <%= current_username %></h4>
+      <h5><%= link_to "My Profile", user_path(User.find_by(username: current_username)) %>
+      <br><%= link_to "Logout", logout_path, method: "DELETE" %></h5>
       <% else %>
       <h5><%= link_to "Login", login_path %></h5>
       <% end %>

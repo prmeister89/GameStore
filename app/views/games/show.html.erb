@@ -10,7 +10,9 @@
     <br>Original Release Date: <%= @game.original_release_date %>
     <br>Original Game Rating: <%= @game.original_game_rating %>
     <br>Platforms: <%= @game.platforms %>
-    <br>Price: <%= @game.price %>
+    <br>Price: $<%= @game.price %>
 
+
+  <br><br><%=  link_to "All Games for Sale", user_games_path%>
   </body>
 </html>
