@@ -12,11 +12,11 @@ User.destroy_all
 UserGame.destroy_all
 Game.destroy_all
 #User
-User.create(name: "Jimmy Figgs", balance: 500.00)
-User.create(name: "Carol Clines", balance: 1000.00)
-User.create(name: "Amy Applebeans", balance: 800.00)
-User.create(name: "Sally Codswhollop", balance: 100.00)
-User.create(name: "Johnny Jellybeans", balance: 300.00)
+User.create(username: "FigNewton18", name: "Jimmy Figgs", balance: 500.00)
+User.create(username: "Clines72", name: "Carol Clines", balance: 1000.00)
+User.create(username: "AppleBasket85", name: "Amy Applebeans", balance: 800.00)
+User.create(username: "ShrinkyDink47", name: "Sally Codswollop", balance: 100.00)
+User.create(username: "JJBeans15", name: "Johnny Jellybeans", balance: 300.00)
 
 #Game
 # Game.create(name: "The Legend of Zelda",
@@ -83,13 +83,14 @@ games = z.map do |xml_element|
 end
 
 #UserGame -- condition options: Poor, Fair, Good, Very Good, Perfect
-UserGame.create(user_id: 1, game_id: 1, condition: "Good", list_price: 34.99)
-UserGame.create(user_id: 1, game_id: 2, condition: "Very Good", list_price: 49.99)
-UserGame.create(user_id: 2, game_id: 2, condition: "Good", list_price: 39.99)
-UserGame.create(user_id: 2, game_id: 3, condition: "Fair", list_price: 19.99)
-UserGame.create(user_id: 3, game_id: 3, condition: "Good", list_price: 24.99)
-UserGame.create(user_id: 3, game_id: 4, condition: "Poor", list_price: 4.99)
-UserGame.create(user_id: 4, game_id: 4, condition: "Fair", list_price: 9.99)
-UserGame.create(user_id: 4, game_id: 5, condition: "Perfect", list_price: 59.99)
-UserGame.create(user_id: 5, game_id: 6, condition: "Poor", list_price: 8.99)
-UserGame.create(user_id: 5, game_id: 1, condition: "Fair", list_price: 24.99)
+#UserGame -- status options: For Sale, Inactive
+UserGame.create(user_id: 1, game_id: 1, condition: "Good", list_price: 34.99, status: "Inactive")
+UserGame.create(user_id: 1, game_id: 2, condition: "Very Good", list_price: 49.99, status: "Inactive")
+UserGame.create(user_id: 2, game_id: 2, condition: "Good", list_price: 39.99, status: "Inactive")
+UserGame.create(user_id: 2, game_id: 3, condition: "Fair", list_price: 19.99, status: "Inactive")
+UserGame.create(user_id: 3, game_id: 3, condition: "Good", list_price: 24.99, status: "Inactive")
+UserGame.create(user_id: 3, game_id: 4, condition: "Poor", list_price: 4.99, status: "Inactive")
+UserGame.create(user_id: 4, game_id: 4, condition: "Fair", list_price: 9.99, status: "Inactive")
+UserGame.create(user_id: 4, game_id: 5, condition: "Perfect", list_price: 59.99, status: "Inactive")
+UserGame.create(user_id: 5, game_id: 6, condition: "Poor", list_price: 8.99, status: "Inactive")
+UserGame.create(user_id: 5, game_id: 1, condition: "Fair", list_price: 24.99, status: "Inactive")

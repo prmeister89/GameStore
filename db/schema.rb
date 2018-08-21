@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_154001) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username"
     t.string "name"
     t.float "balance"
     t.datetime "created_at", null: false
