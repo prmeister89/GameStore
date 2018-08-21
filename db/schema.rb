@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_154001) do
     t.integer "game_id"
     t.string "condition"
     t.float "list_price"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

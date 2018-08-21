@@ -5,6 +5,7 @@ class CreateUserGames < ActiveRecord::Migration[5.2]
       t.integer :game_id
       t.string :condition
       t.float :list_price
+      t.string :status
 
       t.timestamps
     end

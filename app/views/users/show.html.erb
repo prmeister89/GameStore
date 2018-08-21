@@ -1,3 +1,4 @@
+<% require 'pry' %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,7 +15,9 @@
     <h2><%= @user.name %>'s Games</h2>
     <br>
     <% @user.games.each do |g| %>
-    <li><%= link_to g.name, game_path(g) %></li>
+      <li><%= link_to g.name, game_path(g) %></li>
+      <ul>Retail Price: $<%= g.price  %></ul>
+      <ul><%= @user.name %>'s Asking Price: $<%= @user.user_games.find(g.id).list_price %></ul>
     <% end %>
 
   </body>
