@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_154001) do
     t.string "original_game_rating"
     t.string "platforms"
     t.float "price"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

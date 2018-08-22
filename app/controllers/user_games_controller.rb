@@ -34,11 +34,33 @@ class UserGamesController < ApplicationController
     redirect_to user_path(@user_game.user)
   end
 
+  def buy
+    @user_game = UserGame.find(params[:id])
+  end
+
+  def purchase
+    transaction
+    redirect_to user_path(session[:user_id])
+  end
+
 
   private
 
     def ok_params
       params.require(:user_game).permit!
+    end
+
+    def transaction
+      buyer = User.find(session[:user_id])
+      seller = User.find(UserGame.find(params[:id]).user_id)
+      @user_game = UserGame.find(params[:id])
+      @user_game.status = 'Sold'
+      @user_game.user_id = buyer.id
+      buyer.balance = buyer.balance - @user_game.list_price
+      seller.balance = seller.balance + @user_game.list_price
+      buyer.save
+      seller.save
+      @user_game.save
     end
 
 end

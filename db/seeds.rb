@@ -59,6 +59,7 @@ User.create(username: "JJBeans15", name: "Johnny Jellybeans", balance: 300.00)
 doc = Nokogiri::XML(File.open("games.xml"))
 z = Nokogiri::XML(File.open("games.xml")).at_xpath("response/results").children
 games = z.map do |xml_element|
+
   rand_price = rand(0...25.01).round(2)
   #game name
   name = xml_element.children.to_a[14].text
@@ -68,6 +69,8 @@ games = z.map do |xml_element|
   else
     description = Nokogiri::HTML(xml_element.children.to_a[5].text).css('p')[0].text
   end
+  #game image
+  image = xml_element.children.to_a[12].children.to_a[6].text
   #game original_release_date
   release_date = xml_element.children.to_a[17].text[0..9]
   #game original_game_rating
@@ -79,8 +82,13 @@ games = z.map do |xml_element|
     end.map do |y|
       y.text
     end
+  if platforms.length == 0
+    plaforms = "PC"
+  else
+    platforms
+  end
 
-  Game.create(name: "#{name}", description: "#{description}", original_release_date: "#{release_date}", original_game_rating: "#{game_rating}",platforms: platforms, price: rand_price)
+  Game.create(image: "#{image}", name: "#{name}", description: "#{description}", original_release_date: "#{release_date}", original_game_rating: "#{game_rating}",platforms: "#{platforms}", price: rand_price)
 end
 
 #UserGame -- condition options: Poor, Fair, Good, Very Good, Perfect

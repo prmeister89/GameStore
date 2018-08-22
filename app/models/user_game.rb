@@ -4,4 +4,6 @@ class UserGame < ApplicationRecord
 
   validates :condition, presence: true
   validates :list_price, presence: true
+
+  
 end

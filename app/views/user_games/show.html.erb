@@ -7,11 +7,10 @@
 <br>Original release date: <%= g.original_release_date %><br>
 <br>Cost:<br><%= number_to_currency(g.price) %>
 <br>
-<br>For sale by: <%= @user.name %>
+<br>For sale by: <%= @user_game.user.username %>
 <br>List price:<br><%= number_to_currency(@user_game.list_price) %>
-<br>Condition:<br><%= @user_game.condition %>
+<br>Condition:<br><%= @user_game.condition %><br>
 
-<!-- Doesn't work yet -->
-<%= link_to "Buy Now", user_games_buy_path(@user_game), :method => :patch %>
+<br><%= link_to "Buy Now", buy_user_game_path(@user_game) %>
 
 <br><%= link_to "Games for Sale", user_games_path %>

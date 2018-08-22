@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   get 'sessions/create'
-  resources :user_games
+  resources :user_games do
+    member do
+      get :buy
+      patch :purchase
+    end
+  end
   resources :games
   resources :users
   get '/login', to: 'sessions#new'

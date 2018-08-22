@@ -19,7 +19,7 @@
 
       <%= form_for g.user_games.find_by user_id: @user.id do |f| %>
         <%= f.label :status %>:
-        <%= f.select :status, ['For sale', 'Inactive'], prompt: "- Select -"%>
+        <%= f.select :status, ['For sale', 'Inactive',], prompt: "- Select -"%>
         <%= f.submit "Update sales status"%>
       <% end %>
 

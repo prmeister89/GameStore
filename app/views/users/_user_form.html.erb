@@ -3,5 +3,5 @@
   <%= u.text_field :username %>
   <%= u.label :name %>
   <%= u.text_field :name %>
-  <%= u.submit %>
+  <%= u.submit "Submit", data: { confirm: 'Are you sure?' } %>
 <% end %>

@@ -9,7 +9,9 @@
     <br>Description: <%= @game.description %>
     <br>Original Release Date: <%= @game.original_release_date %>
     <br>Original Game Rating: <%= @game.original_game_rating %>
-    <br>Platforms: <%= @game.platforms %>
+    <br>Platforms: <% @game.platforms[1...-1].split(", ").each do |w| %>
+    <li><%= w.tr('""', '') %></li>
+    <% end %>
     <br>Price: <%= number_to_currency(@game.price) %>
 
 

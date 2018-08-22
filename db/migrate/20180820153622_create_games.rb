@@ -7,6 +7,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.string :original_game_rating
       t.string :platforms
       t.float :price
+      t.string :image
 
       t.timestamps
     end
