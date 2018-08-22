@@ -1,0 +1,3 @@
+<h3> Are you sure you would like to purchase <%= @user_game.user.username %>'s copy of <%= @user_game.game.name %>? </h3>
+<br><br><%= link_to "Nope", user_game_path(@user_game) %>
+<br><%= link_to "Yes Please", purchase_user_game_path(@user_game), :method => :post %>

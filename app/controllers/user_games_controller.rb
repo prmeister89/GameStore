@@ -34,6 +34,13 @@ class UserGamesController < ApplicationController
     redirect_to user_path(@user_game.user)
   end
 
+  def buy
+    @user_game = UserGame.find(params[:id])
+  end
+
+  def purchase
+
+  end
 
   private
 

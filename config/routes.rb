@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  resources :user_games
+  resources :user_games do
+    member do
+      get :buy
+      post :purchase
+    end
+  end
   resources :games
   resources :users
+  get 'sessions/new'
+  get 'sessions/create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
