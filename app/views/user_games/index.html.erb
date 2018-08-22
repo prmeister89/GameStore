@@ -1,8 +1,8 @@
-<h1>All games currently for sale:</h1>
+<h1>All Games Currently for Sale:</h1>
 
 <% @user_games.each do |g| %>
   <% if g.status == "For sale" %>
-    <li><%= link_to g.game.name, game_path(g.game.id) %></li>
+    <li><%= link_to g.game.name, user_game_path(g.game.id) %></li>
     <ul>List Price: <%= number_to_currency(g.list_price) %>
     <br>Condition: <%= g.condition %>
     <br>For Sale By: <%= g.user.username %></ul>

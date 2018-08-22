@@ -4,6 +4,11 @@ class UserGamesController < ApplicationController
     @user_games = UserGame.all
   end
 
+  def show
+    @user_game = UserGame.find(params[:id])
+    @user = User.find(session[:user_id])
+  end
+
   def new
     @user_game = UserGame.new
   end
