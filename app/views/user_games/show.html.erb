@@ -11,6 +11,8 @@
 <br>List price:<br><%= number_to_currency(@user_game.list_price) %>
 <br>Condition:<br><%= @user_game.condition %><br>
 
-<br><%= link_to "Buy Now", buy_user_game_path(@user_game) %>
+<!-- Doesn't work yet -->
+<br><br><%= link_to "Buy now", buy_user_game_path(@user_game) %><br>
+
 
 <br><%= link_to "Games for Sale", user_games_path %>
