@@ -8,7 +8,11 @@
     <h1>All Games's List</h1>
 
     <% @games.each do |g| %>
-      <li>Name: <%= link_to g.name, game_path(g) %></li>
+      <div class="image">
+        <a href="<%= game_path(g) %>">
+        <img src="<%= g.image %>">
+      </div>
+        <br>Name: <%= g.name %><br>
     <% end %>
 
   </body>
