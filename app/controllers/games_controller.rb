@@ -8,6 +8,10 @@ class GamesController < ApplicationController
     get_game
   end
 
+  def review
+    
+  end
+
   private
 
   def get_game

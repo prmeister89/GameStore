@@ -1,0 +1,19 @@
+
+<% if @user == "guest" %>
+  Sorry, only a logged-in user may review a game
+  <%= link_to "Back to safety", game_path(@game) %>
+
+<% else %>
+
+  <%= form_tag create_game_review_path do%>
+
+    <label>Write your review of <%= "#{@game.name}" %>:
+    <br><%= text_area_tag 'review[content]' %><br>
+
+    <label>Rating:</label>
+    <%= select_tag "rating", options_for_select((1..5).step(1)) %>
+
+    <%= submit_tag "Submit" %>
+  <% end %>
+
+<% end %>

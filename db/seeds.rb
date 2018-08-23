@@ -103,3 +103,8 @@ UserGame.create(user_id: 4, game_id: 4, condition: "Fair", list_price: 9.99, sta
 UserGame.create(user_id: 4, game_id: 5, condition: "Perfect", list_price: 59.99, status: "Inactive")
 UserGame.create(user_id: 5, game_id: 6, condition: "Poor", list_price: 8.99, status: "Inactive")
 UserGame.create(user_id: 5, game_id: 1, condition: "Fair", list_price: 24.99, status: "Inactive")
+
+Review.create(user_id: 1, game_id: 1, content: "The 1992 Cabernet from Palm Glen Winery fuses delightful oatmeal overtones with a misunderstood vodka bouquet.", rating: 5)
+Review.create(user_id: 1, game_id: 2, content: "Gonzales Vineyards merges unheard-of egg flavors and a lurid Bar-B-Q aroma in their 1997 Chenin Blanc.", rating: 3)
+Review.create(user_id: 2, game_id: 3, content: "A better-than-most cheeseburger finish and ambitious Cran-Apple midtones are combined in the 2000 Chardonnay from Delgado Bros Vineyards.", rating: 2)
+Review.create(user_id: 2, game_id: 4, content: "A voluptuous sour cream essence and shameful marigold undertones are binded in the 2010 Pinot Noir from Chateau Cousteau.", rating: 4)

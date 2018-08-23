@@ -13,6 +13,14 @@
     <li><%= w.tr('""', '') %></li>
     <% end %>
     <br>Price: <%= number_to_currency(@game.price) %>
+    <br>
+    <br>Here's what people are saying about <%= @game.name %>:
+    <% @game.reviews.each do |r| %>
+      <li><%= r.user.username %> says <%= r.content %></li>
+      <br>
+    <% end %>
+
+  <br><h2><%= link_to "Write your own review", new_game_review_path %></h2>
 
 
   <br><br><%=  link_to "All Games for Sale", user_games_path%>
