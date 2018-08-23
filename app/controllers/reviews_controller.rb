@@ -16,7 +16,6 @@ class ReviewsController < ApplicationController
     @user =  User.find(session[:user_id])
     @review.user_id = @user.id
     @review.game_id = params[:id]
-    # binding.pry
     @review.save
     redirect_to game_path(Game.find(params[:id]))
   end

@@ -11,7 +11,7 @@
     <br><%= text_area_tag 'review[content]' %><br>
 
     <label>Rating:</label>
-    <%= select_tag "rating", options_for_select((1..5).step(1)) %>
+    <%= select_tag 'review[rating]', options_for_select((1..5).step(1)) %>
 
     <%= submit_tag "Submit" %>
   <% end %>

@@ -14,48 +14,51 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Games Top</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= games_path %>">All Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= user_games_path %>">Games for Sale</a>
+        </li>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </ul>
+
+      <ul class="navbar-nav navbar-right">
+        <% if current_username %>
+        <li class="nav-item">
+          <a class="nav-link">Logged-in as: <%= current_username %></a>
+        </li>
+        <li class="nav-item right">
+          <a class="nav-link" href="<%= user_path(User.find_by(username: current_username)) %>">Profile</a>
+        </li>
+        <li class="nav-item right">
+          <%= link_to "Logout", logout_path, method: "DELETE", class: "nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= login_path %>">Login</a>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="/">Games Top</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="<%= games_path %>">All Games</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= user_games_path %>">Games for Sale</a>
-          </li>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </ul>
-
-        <ul class="navbar-nav navbar-right"
-          <% if current_username %>
-          <li class="nav-item">
-            <a class="nav-link">Logged-in as: <%= current_username %></a>
-          </li>
-          <li class="nav-item right">
-            <a class="nav-link" href="<%= user_path(User.find_by(username: current_username)) %>">Profile</a>
-          </li>
-          <li class="nav-item right">
-            <%= link_to "Logout", logout_path, method: "DELETE", class: "nav-link" %>
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <a class="nav-link"><%= link_to "Login", login_path %></a>
-          </li>
-            <% end %>
-        </ul>
-      </div>
-    </nav>
-
+    <div class=“container-fluid”>
     <%= yield %>
+    </div>
+
   </body>
 </html>

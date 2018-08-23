@@ -4,7 +4,7 @@
   <%= collection_select(:user_game, :game_id, Game.all, :id, :name, prompt: true) %><br>
 
   <%= f.label :condition %>:
-  <%= f.select :condition, ['new in box', 'no box, but fully functional', 'eaten by dog']%><br>
+  <%= f.select :condition, ['Perfect','Very Good','Good','Fair', 'Poor']%><br>
 
 
   User's <%= f.label :list_price  %>:

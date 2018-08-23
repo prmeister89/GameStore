@@ -16,7 +16,7 @@
 
       <li><%= link_to g.game.name, game_path(g.game) %></li>
 
-        <% form_for g do |f| %>
+        <%= form_for g do |f| %>
           <%= f.label :status %>:
           <%= f.select :status, ['For sale', 'Inactive'], prompt: "- Select -"%>
           <%= f.submit "Update sales status"%>
