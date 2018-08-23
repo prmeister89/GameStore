@@ -14,6 +14,10 @@ class Game < ApplicationRecord
    # validates :original_game_rating, presence: true
   validates :platforms, presence: true
   validates :price, presence: true
+
+  def self.search(search)
+     where("name LIKE ?", "%#{search}%").order("created_at DESC")
+  end
   #
   # @library = RestClient.get("https://www.giantbomb.com/api/games/?api_key=e557578a11e07ac8ba68c4823e186bb115e1452a")
   #

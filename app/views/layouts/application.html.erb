@@ -28,9 +28,14 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= user_games_path %>">Games for Sale</a>
         </li>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+
+        <form class="form-inline my-2 my-lg-0-right">
+          <%= form_tag(games_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Games" %>
+          <%= submit_tag "Search", :name => nil %>
+          <% end %>
+          <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search Games">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
         </form>
       </ul>
 
@@ -57,7 +62,7 @@
   <body>
 
     <div class=“container-fluid”>
-    <%= yield %>
+      <%= yield %>
     </div>
 
   </body>

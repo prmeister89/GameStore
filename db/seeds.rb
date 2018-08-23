@@ -72,7 +72,7 @@ games = z.map do |xml_element|
   #game image
   image = xml_element.children.to_a[12].children.to_a[6].text
   #game original_release_date
-  release_date = xml_element.children.to_a[17].text[0..9]
+  release_date = xml_element.children.to_a[17].text[0..9].split("-").rotate(1).join("-")
   #game original_game_rating
   game_rating = xml_element.children.to_a[16].text.split.last
   # Moving in the right directon, but still needs some help --> xml_element.children.to_a[16].children[1].children[2].children.text

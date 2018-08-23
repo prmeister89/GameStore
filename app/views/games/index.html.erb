@@ -5,9 +5,13 @@
     <title>Game Index</title>
 
   <style>
+    .search_error {
+      color: red;
+      text-align: center;
+    }
     .grid-container {
       display: grid;
-      grid-row-gap: 50px;
+      grid-row-gap: 20px;
       grid-template-columns: auto auto auto;
       background-color: #2196F3;
       padding: 10px;
@@ -15,16 +19,21 @@
     .grid-item {
       background-color: rgba(255, 255, 255, 0.8);
       border: 1px solid rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      font-size: 30px;
+      padding: 10px;
+      font-size: 15px;
       text-align: center;
     }
   </style>
 
   </head>
   <body>
+    <div class="search_error">
+    <% if @games.blank? %>
+      <h5>There are no games that match "<%= params[:search] %>"</h5>
+    <% end %>
+    </div>
 
-    <h1>All Games's List</h1>
+    <h1>All Games List</h1>
 
     <div class="grid-container">
     <% @games.each do |g| %>

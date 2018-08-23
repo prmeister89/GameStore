@@ -2,6 +2,11 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
+    if params[:search]
+      @games = Game.search(params[:search])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -9,7 +14,7 @@ class GamesController < ApplicationController
   end
 
   def review
-    
+
   end
 
   private
