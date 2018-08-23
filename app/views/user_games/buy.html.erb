@@ -1,5 +1,27 @@
-<h1>Are you sure you would like to purchase <%= @user_game.game.name %> from <%= @user_game.user.username %>?</h1>
-<br>
-<br><%= link_to "Yes", purchase_user_game_path(@user_game), :method => :patch  %><br>
 
-<br><%= link_to "Nah Brah", user_game_path(@user_game)%><br>
+<% if @this_user.id == @user_game.user_id %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <center>
+  <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+  <div class="card-header">Warning</div>
+  <div class="card-body">
+    <h4 class="card-title"> Action not permitted </h4>
+    <p class="card-text">Sorry, a user cannot buy their own game.</p>
+  </div>
+  </div>
+  <br>
+  <%= link_to "Back to safey", user_games_path %>
+  </center>
+
+<% else %>
+  <h1>Are you sure you would like to purchase <%= @user_game.game.name %> from <%= @user_game.user.username %>?</h1>
+  <br>
+
+  <br><%= link_to "Yes", purchase_user_game_path(@user_game), :method => :patch  %><br>
+
+  <br><%= link_to "Nah Brah", user_game_path(@user_game)%><br>
+<% end %>

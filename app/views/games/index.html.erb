@@ -3,17 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>Game Index</title>
+
+  <style>
+    .grid-container {
+      display: grid;
+      grid-row-gap: 50px;
+      grid-template-columns: auto auto auto;
+      background-color: #2196F3;
+      padding: 10px;
+    }
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      font-size: 30px;
+      text-align: center;
+    }
+  </style>
+
   </head>
   <body>
+
     <h1>All Games's List</h1>
 
+    <div class="grid-container">
     <% @games.each do |g| %>
-      <div class="image">
-        <a href="<%= game_path(g) %>">
+      <div class="grid-item">
         <img src="<%= g.image %>">
+        <br><%= link_to g.name, game_path(g) %>
       </div>
-        <br>Name: <%= g.name %><br>
     <% end %>
+    </div>
 
   </body>
 </html>

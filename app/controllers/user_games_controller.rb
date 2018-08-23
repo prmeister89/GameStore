@@ -35,6 +35,8 @@ class UserGamesController < ApplicationController
   end
 
   def buy
+    # binding.pry
+    @this_user = User.find(session[:user_id])
     @user_game = UserGame.find(params[:id])
   end
 
