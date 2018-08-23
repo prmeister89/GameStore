@@ -10,11 +10,14 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
   end
 
   def create
-    @user = User.create(username: params[:user][:username], name: params[:user][:name], balance: 0)
-    redirect_to user_path(@user)
+    @user = User.create(username: params[:user][:username], name: params[:user][:name], balance: 5)
+    redirect_to (user_path(@user))
   end
 
   def edit

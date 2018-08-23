@@ -5,9 +5,16 @@
     <title>New User</title>
   </head>
   <body>
+    <% if @current_user %>
+    <h1> You are already logged in as <%= @current_user.username %>
+      <%= link_to "View Profile page", user_path(@current_user)%>
+      <br><%= link_to "Logout", logout_path, method: "DELETE", class: "nav-link" %>
+
+    <% else %>
     <h1>New User</h1>
 
     <%= render "user_form" %>
+    <% end %>
 
   </body>
 </html>

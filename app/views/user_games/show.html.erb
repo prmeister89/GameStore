@@ -1,18 +1,23 @@
 <% g = @user_game.game %>
 <h1><%= g.name %></h1>
 
+<% if @user == "guest"%>
+  <br>
+  <h3> Sorry, you must be logged in to view a game's sale page</h3>
+  <%= link_to "Login", login_path %>
 
-<br>Description:<br><br><%= g.description %><br>
-<br>Original game rating: <%= g.original_game_rating %><br>
-<br>Original release date: <%= g.original_release_date %><br>
-<br>Cost:<br><%= number_to_currency(g.price) %>
-<br>
-<br>For sale by: <%= @user_game.user.username %>
-<br>List price:<br><%= number_to_currency(@user_game.list_price) %>
-<br>Condition:<br><%= @user_game.condition %><br>
+<% else %>
+  <br>Description:<br><br><%= g.description %><br>
+  <br>Original game rating: <%= g.original_game_rating %><br>
+  <br>Original release date: <%= g.original_release_date %><br>
+  <br>Cost:<br><%= number_to_currency(g.price) %>
+  <br>
+  <br>For sale by: <%= @user_game.user.username %>
+  <br>List price:<br><%= number_to_currency(@user_game.list_price) %>
+  <br>Condition:<br><%= @user_game.condition %><br>
 
-<!-- Doesn't work yet -->
-<br><br><%= link_to "Buy now", buy_user_game_path(@user_game) %><br>
-
+  <!-- Doesn't work yet -->
+  <br><br><%= link_to "Buy now", buy_user_game_path(@user_game) %><br>
+<% end %>
 
 <br><%= link_to "Games for Sale", user_games_path %>

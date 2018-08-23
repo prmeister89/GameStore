@@ -8,9 +8,7 @@
   <body>
     <h1><%= @user.name %></h1>
     <br>
-    <h3>Total Account Balance:</h3>
-    <br>
-    <%= number_to_currency(@user.balance) %>
+    <h3>Total Account Balance: <%= number_to_currency(@user.balance) %></h3>
     <br>
     <h2><%= @user.name %>'s Games</h2>
     <br>
@@ -26,10 +24,12 @@
       <ul>Retail Price: <%= number_to_currency(g.price)  %></ul>
       <ul><%= @user.name %>'s Asking Price:
         <%= number_to_currency((g.user_games.find_by user_id: @user.id).list_price) %>
-      </ul><br>
-    <% end %>
+      </ul>
+      <%= link_to 'Remove this game', user_game_path(g), method: :delete %><br>
+    <br><% end %>
 
   <%=  link_to "Add new game", new_user_game_path%>
+  ||
   <%=  link_to "All Games for Sale", user_games_path%>
 
   </body>

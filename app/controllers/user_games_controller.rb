@@ -6,7 +6,11 @@ class UserGamesController < ApplicationController
 
   def show
     @user_game = UserGame.find(params[:id])
-    @user = User.find(session[:user_id])
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    else
+      @user = "guest"
+    end
   end
 
   def new
@@ -40,11 +44,16 @@ class UserGamesController < ApplicationController
     @user_game = UserGame.find(params[:id])
   end
 
+  def destroy
+    @user_game = UserGame.find(params[:id])
+    @user_game.destroy
+      redirect_to user_path(session[:user_id])
+  end
+
   def purchase
     transaction
     redirect_to user_path(session[:user_id])
   end
-
 
   private
 
