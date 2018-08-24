@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" type="text/css" href="../stylesheets/application.css">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -29,11 +29,11 @@
           <a class="nav-link" href="<%= user_games_path %>">Games for Sale</a>
         </li>
 
+        <%= form_tag(games_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Games" %>
+        <%= submit_tag "Search", :name => nil %>
+        <% end %>
         <form class="form-inline my-2 my-lg-0-right">
-          <%= form_tag(games_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Games" %>
-          <%= submit_tag "Search", :name => nil %>
-          <% end %>
           <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search Games">
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
         </form>
@@ -55,6 +55,7 @@
           <a class="nav-link" href="<%= login_path %>">Login</a>
         </li>
         <% end %>
+
       </ul>
     </div>
   </nav>
@@ -62,7 +63,7 @@
   <body>
 
     <div class=“container-fluid”>
-      <%= yield %>
+    <%= yield %>
     </div>
 
   </body>

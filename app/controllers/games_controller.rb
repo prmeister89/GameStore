@@ -5,7 +5,7 @@ class GamesController < ApplicationController
     if params[:search]
       @games = Game.search(params[:search])
     else
-      @recipes = Recipe.all
+      @games = Game.all
     end
   end
 
