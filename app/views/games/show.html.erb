@@ -6,25 +6,28 @@
   </head>
   <body>
     <h1><%= @game.name %></h1><br>
-    <br>Description: <%= @game.description %>
-    <br>Original Release Date: <%= @game.original_release_date %>
-    <br>Original Game Rating: <%= @game.original_game_rating %>
-    <br>Platforms: <% @game.platforms[1...-1].split(", ").each do |w| %>
-    <li><%= w.tr('""', '') %></li>
-    <% end %>
-    <br>Price: <%= number_to_currency(@game.price) %>
+    <div class="game_container">
+      <br>Description: <%= @game.description %>
+      <br>Original Release Date: <%= @game.original_release_date %>
+      <br>Original Game Rating: <%= @game.original_game_rating %>
+      <br>Platforms: <% @game.platforms[1...-1].split(", ").each do |w| %>
+      <li><%= w.tr('""', '') %></li>
+      <% end %>
+      <br>Price: <%= number_to_currency(@game.price) %>
+    </div>
     <br><br>
+    <div class="review_container">
     <h5>Here's what people are saying about <%= @game.name %>:</h5>
     <% @game.reviews.each do |r| %>
       <li><%= r.user.username %> says:<ul> "<%= r.content %>"
       <br>Rating: <%= r.rating %></ul></li>
       <br>
-
     <% end %>
 
-  <br><h2><%= link_to "Write your own review", new_game_review_path %></h2>
+    <br><h5><%= link_to "Write a Review", new_game_review_path %></h5>
 
 
-  <br><br><%=  link_to "All Games for Sale", user_games_path%>
+    <br><br><%=  link_to "All Games for Sale", user_games_path%>
+  </div>
   </body>
 </html>

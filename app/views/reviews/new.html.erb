@@ -1,7 +1,7 @@
 
 <% if @user == "guest" %>
-  Sorry, only a logged-in user may review a game
-  <%= link_to "Back to safety", game_path(@game) %>
+  Sorry, you're not a member, thus, have no valid opinions.
+  <br><br><%= link_to "Back to the depths with you!", game_path(@game) %>
 
 <% else %>
 

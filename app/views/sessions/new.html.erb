@@ -5,17 +5,18 @@
     <title>Log-in</title>
   </head>
   <body>
-    <h1>Log-In Page</h1>
+    <center>
+    <h1>Please Log-In</h1>
 
     <div class="error">
       <%= flash.notice %>
     </div>
-
+<br>
     <%= form_tag '/login' do %>
       <%= label_tag :username %>
       <%= text_field_tag :username %>
       <%= submit_tag "Log-In" %>
     <% end %>
-
+  </center>
   </body>
 </html>

@@ -93,15 +93,15 @@ end
 
 #UserGame -- condition options: Poor, Fair, Good, Very Good, Perfect
 #UserGame -- status options: For Sale, Inactive
-UserGame.create(user_id: 1, game_id: 1, condition: "Good", list_price: 34.99, status: "Inactive")
+UserGame.create(user_id: 1, game_id: 1, condition: "Good", list_price: 34.99, status: "For sale")
 UserGame.create(user_id: 1, game_id: 2, condition: "Very Good", list_price: 49.99, status: "Inactive")
-UserGame.create(user_id: 2, game_id: 2, condition: "Good", list_price: 39.99, status: "Inactive")
+UserGame.create(user_id: 2, game_id: 2, condition: "Good", list_price: 39.99, status: "For sale")
 UserGame.create(user_id: 2, game_id: 3, condition: "Fair", list_price: 19.99, status: "Inactive")
 UserGame.create(user_id: 3, game_id: 3, condition: "Good", list_price: 24.99, status: "Inactive")
-UserGame.create(user_id: 3, game_id: 4, condition: "Poor", list_price: 4.99, status: "Inactive")
+UserGame.create(user_id: 3, game_id: 4, condition: "Poor", list_price: 4.99, status: "For sale")
 UserGame.create(user_id: 4, game_id: 4, condition: "Fair", list_price: 9.99, status: "Inactive")
 UserGame.create(user_id: 4, game_id: 5, condition: "Perfect", list_price: 59.99, status: "Inactive")
-UserGame.create(user_id: 5, game_id: 6, condition: "Poor", list_price: 8.99, status: "Inactive")
+UserGame.create(user_id: 5, game_id: 6, condition: "Poor", list_price: 8.99, status: "For sale")
 UserGame.create(user_id: 5, game_id: 1, condition: "Fair", list_price: 24.99, status: "Inactive")
 
 Review.create(user_id: 1, game_id: 1, content: "The 1992 Cabernet from Palm Glen Winery fuses delightful oatmeal overtones with a misunderstood vodka bouquet.", rating: 5)

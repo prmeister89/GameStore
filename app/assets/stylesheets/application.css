@@ -1,18 +1,29 @@
 IMG.displayed {
     display: block;
+    background-color: transparent;
     margin-left: auto;
     margin-right: auto;
 }
 
-.welcome_page{
-  background-color: rgb(173, 176, 178);
+.game_container {
+  padding-left: 20px;
 }
-.welcome_page h1{
-  color: rgb(235, 235, 237);
+
+.review_container {
+  padding-left:20px;
+  padding-bottom:20px;
+  border: 10px;
+}
+
+.doc_background{
+  background-color: rgb(235, 235, 237);
+}
+h1, h5{
+  color: #007bff;
 }
 
 #game_index_background{
-  background-color: rgb(173, 176, 178);
+  background-color: rgb(235, 235, 237);
 }
 
 .search_error {
@@ -23,11 +34,12 @@ IMG.displayed {
   display: grid;
   grid-row-gap: 20px;
   grid-template-columns: auto auto auto;
-  background-color: rgb(173, 176, 178);
+  background-color: rgb(235, 235, 237);
   padding: 10px;
 }
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+
+.grid-item{
+  background-color: ghostwhite;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 10px;
   font-size: 15px;

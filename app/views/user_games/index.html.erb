@@ -1,39 +1,34 @@
 
 <html>
-<head>
-  <style>
-  .grid-container {
-    display: grid;
-    grid-row-gap: 20px;
-    grid-template-columns: auto auto auto;
-    background-color: #2196F3;
-    padding: 10px;
-  }
-  .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    font-size: 15px;
-    text-align: center;
-  }
-  </style>
 
-</head>
 <body>
 
-<h1>All Games Currently for Sale:</h1>
+<h1>All Games Currently for Sale:</h1><br>
 
 <div class="grid-container">
+
+  <% @arr = [] %>
   <% @user_games.each do |g| %>
 
-    <% if g.status == "For sale" %>
+  <% if g.status == "For sale" %>
     <div class="grid-item">
-      <li><%= link_to g.game.name, user_game_path(g.id) %></li>
-      <ul>List Price: <%= number_to_currency(g.list_price) %>
+      <img src="<%= g.game.image %>"><br>
+      <%= link_to g.game.name, user_game_path(g.id) %><br>
+      List Price: <%= number_to_currency(g.list_price) %>
         <br>Condition: <%= g.condition %>
-        <br>For Sale By: <%= g.user.username %></ul>
+        <br>For Sale By: <%= g.user.username %>
+      <% @arr << g %>
     </div>
     <% end %>
+  <% end %>
+  <% if @arr.count == 0 %>
+  <center>
+    <h5>Sorry, looks like not any nobody's selling nuthin'.</h5><br>
+
+    <IMG class="displayed" src="https://media1.tenor.com/images/701a53f5ed5bb4df3af074b0e2c02ce5/tenor.gif?itemid=7556577">
+  <center>
+
+    <%= link_to "Back to All Games", games_path %>
   <% end %>
 </div>
 
