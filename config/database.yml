@@ -29,14 +29,14 @@
 
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf-8
   database: PJ-Gamestore
   pool: 5
   timeout: 5000
 
 test:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf-8
   database: PJ-Gamestore
   pool: 5
   timeout: 5000
