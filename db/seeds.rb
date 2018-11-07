@@ -17,6 +17,7 @@ User.create(username: "Clines72", name: "Carol Clines", balance: 1000.00)
 User.create(username: "AppleBasket85", name: "Amy Applebeans", balance: 800.00)
 User.create(username: "ShrinkyDink47", name: "Sally Codswollop", balance: 100.00)
 User.create(username: "JJBeans15", name: "Johnny Jellybeans", balance: 300.00)
+User.create(username: "guest", name: "guest", balance: 500.00)
 
 #Game
 # Game.create(name: "The Legend of Zelda",
